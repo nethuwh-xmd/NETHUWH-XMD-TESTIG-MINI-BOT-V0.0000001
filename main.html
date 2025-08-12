@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NETHUWH-XMD-PROJECT</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
   <style>
     * {
       margin: 0;
@@ -13,13 +16,14 @@
     }
 
     body {
+      background: url('https://files.catbox.moe/66s28u.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background: linear-gradient(135deg, #000, #000); /* Dark gradient background */
-      font-family: 'Poppins', sans-serif;
-      color: #fff;
     }
 
     .container {
@@ -121,7 +125,8 @@
       transform: translateY(-2px); /* Subtle lift effect */
     }
 
-    #waiting-message, #pair a {
+    #waiting-message,
+    #pair a {
       color: #fff;
       font-size: 1rem;
       margin-top: 20px;
@@ -175,7 +180,7 @@
           <h4>NETHUWH-MINI</h4>
           <h6>---------------</h6>
           <div class="input-container">
-            <input placeholder="+94xxxxxxxxx" type="number" id="number" name="">
+            <input placeholder="+94xxxxxxxxx" type="number" id="number" name="" />
             <button id="submit">Submit</button>
           </div>
           <a id="waiting-message" class="centered-text" style="display: none;">In process...</a>
@@ -213,7 +218,7 @@
         const bc = c.value.replace(/[^0-9]/g, "");
         let bb = "";
         let bbc = "";
-        const cc = bc.split('');
+        const cc = bc.split("");
         cc.forEach((a, index) => {
           bbc += a;
           if (bbc.length === 3 || bbc.length === 8) {
@@ -229,9 +234,13 @@
         try {
           let { data } = await axios(`/code?number=${bc}`);
           let code = data.code || "Service Unavailable";
-          a.innerHTML = '<font id="copy" onclick="Copy()" style="color:#ff6b6b;font-weight:bold" size="5">CODE: <span style="color:#fff;font-weight:bold">' + code + '</span></font><br><br><br>';
+          a.innerHTML =
+            '<font id="copy" onclick="Copy()" style="color:#ff6b6b;font-weight:bold" size="5">CODE: <span style="color:#fff;font-weight:bold">' +
+            code +
+            "</span></font><br><br><br>";
         } catch (error) {
-          a.innerHTML = '<a style="color:#ff6b6b;font-weight:bold">❌ Error fetching code ❌</a><br><br>';
+          a.innerHTML =
+            '<a style="color:#ff6b6b;font-weight:bold">❌ Error fetching code ❌</a><br><br>';
         }
       }
     });
